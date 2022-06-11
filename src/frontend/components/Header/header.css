@@ -1,0 +1,18 @@
+.app-header {
+  grid-area: hd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.0em;
+  background: #646464e2;
+}
+
+#logo,
+.app-header h1
+ {
+  color: #fff;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+

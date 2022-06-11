@@ -1,0 +1,54 @@
+{
+  
+  "dependencies": {
+    "express": "^4.17.1",
+    "ngrok": "^3.2.7",
+    "open": "7.0.2",
+    "overmind": "22.0.5",
+    "overmind-react": "23.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-markdown": "^4.3.1",
+    "socket.io": "^2.4.0",
+    "socket.io-client": "^2.3.0",
+    "url-loader": "3.0.0",
+    "uuid": "^3.4.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "prod": "NODE_ENV=production concurrently --kill-others \"ts-node-dev --respawn --transpile-only server.ts\" \"ts-node-dev --transpile-only --respawn ngrok.ts\"",
+    "preprod": "npm run build",
+    "build": "webpack --mode production --config ./config/webpack.config.js",
+    "start": "npm run dev",
+    "dev:client": "webpack-dev-server --mode development --open --config ./config/webpack.config.js",
+    "dev:server": "ts-node-dev --respawn --transpile-only server.ts",
+    "ci:server": "ts-node-dev --transpile-only server.ts",
+    "ci:start": "concurrently \"npm run ci:server\" \"npm run dev:client\"",
+    "test:headless": "cypress run",
+    "test": "cypress open",
+    "test:ci": "start-server-and-test ci:start http://localhost:4000 test:headless"
+  },
+  "devDependencies": {
+    "@arkweid/lefthook": "^0.7.2",
+    "@types/express": "^4.17.7",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/socket.io": "^2.1.8",
+    "@types/socket.io-client": "^1.4.33",
+    "@types/uuid": "^3.4.9",
+    "concurrently": "^5.2.0",
+    "css-loader": "^3.6.0",
+    "cypress": "^6.5.0",
+    "html-webpack-plugin": "^3.2.0",
+    "source-map-loader": "^0.2.4",
+    "start-server-and-test": "^1.12.0",
+    "style-loader": "^1.2.1",
+    "svg-url-loader": "^3.0.3",
+    "ts-loader": "^6.2.2",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

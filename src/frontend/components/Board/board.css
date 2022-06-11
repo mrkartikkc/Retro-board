@@ -1,0 +1,34 @@
+#board {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: 5vh 1fr;
+  background-color: var(--app--background-color);
+  transition: background-color 1s ease-out, color 1s ease-in;
+}
+
+#columns {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 12;
+  display: flex;
+  margin: 0 10px;
+  z-index: 1;
+}
+
+.add-column--button-filler {
+  height: 1.5em;
+  margin: 1.0rem 0;
+}
+
+.button--add-column {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: var(--green);
+  font-size: 1.6em;
+  padding: 0 0.4em;
+  font-weight: 200;
+}
+
+.button--add-column:hover {
+  background-color: #88d488;
+}
